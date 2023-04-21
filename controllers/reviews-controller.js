@@ -10,6 +10,17 @@ const createReview = async (req, res) => {
     res.json(insertedTuit);
 }    
 
+const findTop5Reviews = async (req, res) => {
+    const aid = req.params.aid;
+    const reviews = await reviewsDao.findReviews();
+    const top5Reviews = [];
+    const upperBound = reviews.length < 5 ? reviews.length : 5;
+    for (let i = 0; i < upperBound; i++) {
+        top5Reviews.push(reviews[i]);
+    }
+    res.json(top5Reviews);
+}
+
 const findReviews = async (req, res) => {
     const aid = req.params.aid;
     const reviews = await reviewsDao.findReviews();
@@ -39,6 +50,7 @@ const deleteReview = async (req, res) => {
 export default (app) => {
     app.post('/api/albums/:aid/reviews', createReview);
     app.get('/api/albums/:aid/reviews', findReviews);
+    app.get('/api/topReviews', findTop5Reviews);
     app.put('/api/albums/:aid/reviews/:rid', updateReview);
     app.delete('/api/albums/:aid/reviews/:rid', deleteReview);
 }

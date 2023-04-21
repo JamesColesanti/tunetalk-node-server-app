@@ -21,7 +21,7 @@ const findTop5Reviews = async (req, res) => {
     res.json(top5Reviews);
 }
 
-const findReviews = async (req, res) => {
+const findReviewsForAlbum = async (req, res) => {
     const aid = req.params.aid;
     const reviews = await reviewsDao.findReviews();
     const reviewsForGivenAlbum = [];
@@ -49,7 +49,7 @@ const deleteReview = async (req, res) => {
 
 export default (app) => {
     app.post('/api/albums/:aid/reviews', createReview);
-    app.get('/api/albums/:aid/reviews', findReviews);
+    app.get('/api/albums/:aid/reviews', findReviewsForAlbum);
     app.get('/api/topReviews', findTop5Reviews);
     app.put('/api/albums/:aid/reviews/:rid', updateReview);
     app.delete('/api/albums/:aid/reviews/:rid', deleteReview);

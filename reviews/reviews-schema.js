@@ -5,7 +5,8 @@ const schema = mongoose.Schema({
     username: String,
     likes: Number,
     liked: Boolean,
-    albumId: Number,
+    albumId: String,
+    stars: Number,
 }, {collection: 'reviews'});
 
 export default schema;

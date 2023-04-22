@@ -7,6 +7,7 @@ const schema = mongoose.Schema({
     liked: Boolean,
     albumId: String,
     stars: Number,
+    title: String,
 }, {collection: 'reviews'});
 
 export default schema;

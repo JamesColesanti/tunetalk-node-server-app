@@ -80,7 +80,7 @@ const UsersController = (app) => {
 
   app.get("/api/users", findAllUsers);
   app.get("/api/users/username/:username", findUserByUsername);
-  // app.get("/api/users/:id", findUserById);
+  app.get("/api/users/:id", findUserById);
   app.post("/api/users", createUser);
   app.put("/api/users/:id", updateUser);
   app.delete("/api/users/:id", deleteUser);

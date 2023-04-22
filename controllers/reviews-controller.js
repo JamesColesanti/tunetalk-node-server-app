@@ -4,14 +4,11 @@ const createReview = async (req, res) => {
     const newReview = req.body;
     newReview.likes = 0;
     newReview.liked = false;
-    newReview.dislikes = 0;
-    newReview.disliked = false;
-    const insertedTuit = await reviewsDao.createReview(newReview);
-    res.json(insertedTuit);
+    const insertedReview = await reviewsDao.createReview(newReview);
+    res.json(insertedReview);
 }    
 
 const findTop5Reviews = async (req, res) => {
-    const aid = req.params.aid;
     const reviews = await reviewsDao.findReviews();
     const top5Reviews = [];
     const upperBound = reviews.length < 5 ? reviews.length : 5;

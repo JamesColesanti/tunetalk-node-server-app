@@ -7,7 +7,6 @@ const usersSchema = new mongoose.Schema(
     firstName: { type: String, default: "" },
     lastName: String,
     email: { type: String },
-    phone: { type: String, default: "123-234-3456" },
     createdOn: { type: Date, default: Date.now },
     isAdmin: { type: Boolean, default: false },
   },

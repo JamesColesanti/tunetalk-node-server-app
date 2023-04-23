@@ -32,6 +32,6 @@ export const updateUser = async (id, user) => {
 };
 
 export const deleteUser = async (id) => {
-  const status = await usersModel.deleteOne({ _id: id });
+  const status = await usersModel.findOneAndDelete({ _id: id });
   return status;
 };

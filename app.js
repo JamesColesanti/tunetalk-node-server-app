@@ -5,7 +5,7 @@ import ReviewsController from "./controllers/reviews-controller.js";
 import mongoose from "mongoose";
 import UsersController from './controllers/users-controller.js';
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_TUNETALK;
+const CONNECTION_STRING = "mongodb+srv://user1:tunetalkIsCool4@tunetalkcluster.9qvkuuk.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(CONNECTION_STRING);
 
 const app = express();

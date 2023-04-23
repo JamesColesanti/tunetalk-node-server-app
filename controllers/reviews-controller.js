@@ -59,13 +59,13 @@ const findLikedReviews = async (req, res) => {
 const updateReview = async (req, res) => {
     const ridToUpdate = req.params.rid;
     const updates = req.body;
-    const status = await tuitsDao.updateReview(ridToUpdate, updates);
+    const status = await reviewsDao.updateReview(ridToUpdate, updates);
     res.json(status);
 }
 
 const deleteReview = async (req, res) => {
     const ridToDelete = req.params.rid;
-    const status = await tuitsDao.deleteReview(ridToDelete);
+    const status = await reviewsDao.deleteReview(ridToDelete);
     res.json(status);    
 }
 

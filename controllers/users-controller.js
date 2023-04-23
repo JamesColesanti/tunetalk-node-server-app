@@ -58,7 +58,9 @@ const UsersController = (app) => {
       res.sendStatus(404);
       return;
     }
-    res.send(currentUser);
+    const updatedUser = await dao.findUserByUsername(currentUser.username);
+    req.session["currentUser"] = updatedUser;
+    res.json(updatedUser);
   };
   const register = async (req, res) => {
     const user = req.body;

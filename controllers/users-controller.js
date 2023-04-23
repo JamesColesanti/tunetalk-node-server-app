@@ -14,8 +14,12 @@ const UsersController = (app) => {
   };
   const findUserById = async (req, res) => {
     // const user = users.find((user) => user.id === req.params.id);
-    const user = await dao.findUserById(req.params.id);
-    res.json(user);
+    try {
+      const user = await dao.findUserById(req.params.id);
+      res.json(user);
+    } catch (e) {
+        res.sendStatus(404);
+    }
   };
   const createUser = async (req, res) => {
     const user = req.body;

@@ -44,6 +44,18 @@ const findReviewsByUser = async (req, res) => {
     res.json(reviewsByUser);
 }
 
+const findLikedReviews = async (req, res) => {
+    const reviews = await reviewsDao.findReviews();
+    const likedReviews = [];
+    for (let i = 0; i < reviews.length; i++) {
+        const curReview = reviews[i];
+        if (curReview.liked) {
+            likedReviews.push(curReview);
+        }
+    }
+    res.json(likedReviews);
+}
+
 const updateReview = async (req, res) => {
     const ridToUpdate = req.params.rid;
     const updates = req.body;
@@ -61,6 +73,7 @@ export default (app) => {
     app.post('/api/albums/:aid/reviews', createReview);
     app.get('/api/albums/:aid/reviews', findReviewsForAlbum);
     app.get('/api/topReviews', findTop5Reviews);
+    app.get('/api/likedReviews', findLikedReviews);
     app.get('/api/users/:uid/reviews', findReviewsByUser);
     app.put('/api/albums/:aid/reviews/:rid', updateReview);
     app.delete('/api/albums/:aid/reviews/:rid', deleteReview);

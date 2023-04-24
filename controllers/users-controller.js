@@ -33,20 +33,17 @@ const UsersController = (app) => {
 
   const updateUser = async (req, res) => {
     const user = req.body;
-    // const index = users.findIndex((user) => user.id === req.params.id);
-    // users[index] = user;
     const status = await dao.updateUser(req.params.id, user);
     res.send(status);
   };
+  
   const deleteUser = async (req, res) => {
-    // const index = users.findIndex((user) => user.id === req.params.id);
-    // users.splice(index, 1);
     const status = await dao.deleteUser(req.params.id);
     res.send(status);
   };
+
   const login = async (req, res) => {
     const user = await dao.findUserByCredentials(req.body);
-    // users.find((user) => user.username === req.body.username);
     if (user) {
       req.session["currentUser"] = user;
       res.json(user);

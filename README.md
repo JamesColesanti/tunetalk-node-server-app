@@ -1,3 +1,2 @@
-# tunetalk-node-server-app
-
-![./uml.jpeg](./uml.jpeg)
+# Node Server for TuneTalk
+This repository is in charge of the back-end operations of the TuneTalk web application.

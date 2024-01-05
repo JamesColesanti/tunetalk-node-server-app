@@ -13,7 +13,7 @@ console.log(CONNECTION_STRING);
 app.use(
   cors({
     credentials: true,
-    origin: "https://tunetalk-node-server-app.onrender.com/api",
+    origin: "http://localhost:3000",
   })
 );
 

@@ -13,7 +13,7 @@ console.log(CONNECTION_STRING);
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: "https://main--melodic-liger-3a353c.netlify.app",
   })
 );
 

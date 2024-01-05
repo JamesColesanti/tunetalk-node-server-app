@@ -9,11 +9,11 @@ const CONNECTION_STRING = process.env.DB_CONNECTION_TUNETALK;
 mongoose.connect(CONNECTION_STRING);
 
 const app = express();
-
+console.log(CONNECTION_STRING);
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: "https://tunetalk-node-server-app.onrender.com/api",
   })
 );
 
